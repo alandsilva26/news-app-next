@@ -1,0 +1,17 @@
+// fonts
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,900;1,700&family=Roboto&display=swap");
+
+// files
+@import "./abstracts/variables";
+@import "./layout";
+@import "./pages/home";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.layout {
+  background: white;
+}

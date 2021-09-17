@@ -1,7 +1,16 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import "antd/dist/antd.css";
+import "../styles/globals.scss";
+import type { AppProps } from "next/app";
+import LayoutWrapper from "../components/layout";
+import SettingsProvider from "../utils/SettingsProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return (
+    <SettingsProvider>
+      <LayoutWrapper>
+        <Component {...pageProps} />
+      </LayoutWrapper>
+    </SettingsProvider>
+  );
 }
-export default MyApp
+export default MyApp;

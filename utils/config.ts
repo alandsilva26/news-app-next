@@ -34,3 +34,5 @@ export const LANGUAGE_LIST: string[] = [
   "ud",
   "zh",
 ];
+
+export const TOPIC_LIST: string[] = [];

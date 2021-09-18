@@ -1,21 +1,42 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import { Card, Typography, Row, Col, Image } from "antd";
-import { News } from "../../utils/types";
+import { News } from "../utils/types";
 
 interface IProps {
   newsItem: News;
+  search?: string;
 }
 
 const { Title, Text, Paragraph } = Typography;
 
-const TopNewsCard: React.FC<IProps> = ({ newsItem }) => {
+const NewsCard: React.FC<IProps> = ({ newsItem, search = "" }) => {
   let imgSpan: number;
+
+  const title = newsItem.title.replace("Bitcoin", "<mark>lemon</mark>");
+
   if (!newsItem.urlToImage) {
     imgSpan = 0;
   } else {
     imgSpan = 8;
   }
+
+  useEffect(() => {}, []);
+
+  const getHighlightedText = (text: string, highlight: string): JSX.Element => {
+    const parts = text.split(new RegExp(`(${highlight})`, "gi"));
+    return (
+      <span>
+        {parts.map((part) =>
+          part.toLowerCase() === highlight.toLowerCase() ? (
+            <mark>{part}</mark>
+          ) : (
+            part
+          )
+        )}
+      </span>
+    );
+  };
 
   return (
     <Card className="topnews" size="small">
@@ -24,19 +45,21 @@ const TopNewsCard: React.FC<IProps> = ({ newsItem }) => {
           {newsItem.author && (
             <Text className="topnews__author">{newsItem.author}</Text>
           )}
+
           <a className="topnews__link" href={newsItem.url}>
             <Paragraph
               className="topnews__title"
               ellipsis={{ rows: 2, expandable: false }}
             >
-              {newsItem.title}
+              {getHighlightedText(newsItem.title, search)}
             </Paragraph>
           </a>
           <Paragraph
             className="topnews__paragraph"
             ellipsis={{ rows: 2, expandable: false }}
           >
-            {newsItem.description}
+            {newsItem.description &&
+              getHighlightedText(newsItem.description, search)}
           </Paragraph>
           <a className="topnews__link" href={newsItem.url}>
             View Full Coverage
@@ -60,4 +83,4 @@ const TopNewsCard: React.FC<IProps> = ({ newsItem }) => {
   );
 };
 
-export default TopNewsCard;
+export default NewsCard;

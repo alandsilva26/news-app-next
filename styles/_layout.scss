@@ -1,3 +1,49 @@
+.layout {
+  background: white;
+}
+
+.page-title {
+  font-family: $serif-font;
+  text-align: center;
+  padding: 0.5em 0em;
+  margin-bottom: 0 !important;
+
+  a {
+    color: rgba(0, 0, 0, 0.8) !important;
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    font-size: 4em !important;
+  }
+}
+
+.container {
+  width: 100%;
+  padding: 0 15px;
+  margin: 0 auto;
+  margin-bottom: 5em;
+
+  @media (min-width: $breakpoint-sm) {
+    max-width: 540px;
+  }
+
+  @media (min-width: $breakpoint-md) {
+    max-width: 720px;
+  }
+
+  @media (min-width: $breakpoint-lg) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $breakpont-xl) {
+    max-width: 1140px;
+  }
+
+  @media (min-width: $breakpoint-xxl) {
+    max-width: 1320px;
+  }
+}
+
 .nav {
   padding: 0 20px;
   display: flex;

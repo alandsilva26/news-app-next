@@ -1,5 +1,4 @@
-import React, { useState, useEffect, useContext, createContext } from "react";
-import { COUNTRY_LIST } from "./config";
+import React, { useState, useContext, createContext } from "react";
 
 const defaultState = {
   country: "us",

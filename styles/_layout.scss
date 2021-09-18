@@ -17,6 +17,29 @@
   }
 }
 
+.navheader {
+  background-color: white;
+  padding: 0 0.5em;
+
+  .navheader__title {
+    font-size: 18px;
+
+    a {
+      color: white;
+    }
+  }
+
+  @media (min-width: $breakpoint-sm) {
+    display: none;
+  }
+}
+
+.sidedrawer {
+  .ant-drawer-content-wrapper {
+    width: 90% !important;
+  }
+}
+
 .container {
   width: 100%;
   padding: 0 15px;

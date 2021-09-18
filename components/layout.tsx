@@ -8,13 +8,15 @@ import {
   Space,
   Row,
   Col,
+  Button,
+  Drawer,
 } from "antd";
 import Link from "next/link";
 import HomeSettings from "./home/HomeSettings";
-import { MenuOutlined } from "@ant-design/icons";
+import SideDrawer from "./SideDrawer";
 
 const { Header, Content } = Layout;
-const { Title } = Typography;
+const { Text, Title } = Typography;
 const { Search } = Input;
 
 const LayoutWrapper = ({ children }: { children: JSX.Element }) => {
@@ -25,21 +27,14 @@ const LayoutWrapper = ({ children }: { children: JSX.Element }) => {
       </Head>
 
       <Layout className="layout">
-        {/* <Header className="nav">
-          <div>
-            <Search className="search" placeholder="Search" />
-          </div>
-
-          <Menu
-            className="nav__menu"
-            mode="horizontal"
-            overflowedIndicator={<MenuOutlined />}
-          >
-            <Menu.Item key={1}>Menu 1</Menu.Item>
-            <Menu.Item key={2}>Menu 2</Menu.Item>
-            <Menu.Item key={3}>Menu 3</Menu.Item> 
-          </Menu>
-        </Header> */}
+        <Header className="navheader">
+          <Space>
+            <SideDrawer />
+            <Text className="navheader__title">
+              <Link href="/">Next News</Link>
+            </Text>
+          </Space>
+        </Header>
 
         <Title className="page-title">
           <Link href="/">Next News</Link>
@@ -53,7 +48,7 @@ const LayoutWrapper = ({ children }: { children: JSX.Element }) => {
             <Col className="col" sm={{ span: 24 }} md={{ span: 16 }}>
               {children}
             </Col>
-            <Col className="col" span={8}>
+            <Col className="col" sm={{ span: 0 }} md={{ span: 8 }}>
               <HomeSettings />
             </Col>
           </Row>

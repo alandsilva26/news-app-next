@@ -2,7 +2,7 @@ import React from "react";
 import { Input, Affix, Button, Divider, Space, Typography } from "antd";
 import { useRouter } from "next/router";
 import { useSettings } from "../../utils/SettingsProvider";
-import { COUNTRY_LIST } from "../../utils/config";
+import { COUNTRY_LIST, TOPIC_LIST } from "../../utils/config";
 
 const { Title, Text } = Typography;
 const { Search } = Input;
@@ -14,6 +14,10 @@ const HomeSettings = (): JSX.Element => {
 
   const handleClick = (newCountry: string) => {
     setCountry(newCountry);
+  };
+
+  const handleTopicClick = (topic: string): void => {
+    router.push({ pathname: "/news", query: { search_query: topic } });
   };
 
   const handleSearch = (
@@ -54,6 +58,17 @@ const HomeSettings = (): JSX.Element => {
         </Space>
         <Divider />
         <Text strong={true}>Topics</Text>
+        <Space size={[8, 16]} wrap>
+          {TOPIC_LIST.map(
+            (_topic: string, index: number): JSX.Element => {
+              return (
+                <Button key={index} onClick={(e) => handleTopicClick(_topic)}>
+                  {_topic}
+                </Button>
+              );
+            }
+          )}
+        </Space>
       </Space>
     </Affix>
   );

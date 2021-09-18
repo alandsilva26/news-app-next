@@ -36,16 +36,19 @@ const Search: NextPage = () => {
 
       const response = await fetch(url);
 
+      console.log(response);
+
       if (response.ok) {
         const data = await response.json();
-        console.log(data.articles);
+
         setData(data.articles);
+
+        setError(false);
+        setLoading(false);
       } else {
+        setLoading(false);
         setError(true);
       }
-
-      setError(false);
-      setLoading(false);
     }
 
     if (search_query) {
@@ -60,7 +63,7 @@ const Search: NextPage = () => {
   return (
     <>
       <NewsList
-        title={`Search Results for ${search_query}`}
+        title={`Results for ${search_query}`}
         search={search_query}
         data={data}
         loading={loading}

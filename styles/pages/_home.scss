@@ -28,26 +28,24 @@
     margin-bottom: 0.25em;
   }
 
-  &__link {
-    .topnews__title {
-      font-size: 20px;
-      line-height: 28px;
-      font-weight: 700;
-      margin: 0.5em 0;
+  .topnews__title {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 700;
+    margin: 0.5em 0;
 
-      @media (max-width: $breakpoint-sm) {
-        // color: red;
-        font-size: 14px;
-        font-weight: 400;
-      }
-    }
-
-    &:hover {
-      .topnews__title {
-        color: #1955a5;
-      }
+    @media (max-width: $breakpoint-sm) {
+      // color: red;
+      font-size: 14px;
+      font-weight: 400;
     }
   }
+
+  // &:hover {
+  //   .topnews__title {
+  //     color: #1955a5;
+  //   }
+  // }
 
   &__paragraph {
     font-size: 16px;

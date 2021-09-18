@@ -35,4 +35,20 @@ export const LANGUAGE_LIST: string[] = [
   "zh",
 ];
 
-export const TOPIC_LIST: string[] = [];
+export const TOPIC_LIST: string[] = [
+  "World",
+  "Politics",
+  "Business",
+  "Opinion",
+  "Tech",
+  "Science",
+  "Health",
+  "Sports",
+  "Art",
+  "Books",
+  "Style",
+  "Food",
+  "Travel",
+  "Magazine",
+  "Video",
+];

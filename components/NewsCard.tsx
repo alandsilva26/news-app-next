@@ -43,17 +43,19 @@ const NewsCard: React.FC<IProps> = ({ newsItem, search = "" }) => {
       <Row>
         <Col className="topnews__content" span={24 - imgSpan - 1}>
           {newsItem.author && (
-            <Text className="topnews__author">{newsItem.author}</Text>
+            <Text className="topnews__author">
+              {newsItem.author.length > 20
+                ? `${newsItem.author.slice(0, 20)}...`
+                : newsItem.author}
+            </Text>
           )}
 
-          <a className="topnews__link" href={newsItem.url}>
-            <Paragraph
-              className="topnews__title"
-              ellipsis={{ rows: 2, expandable: false }}
-            >
-              {getHighlightedText(newsItem.title, search)}
-            </Paragraph>
-          </a>
+          <Paragraph
+            className="topnews__title"
+            ellipsis={{ rows: 2, expandable: false }}
+          >
+            {getHighlightedText(newsItem.title, search)}
+          </Paragraph>
           <Paragraph
             className="topnews__paragraph"
             ellipsis={{ rows: 2, expandable: false }}
